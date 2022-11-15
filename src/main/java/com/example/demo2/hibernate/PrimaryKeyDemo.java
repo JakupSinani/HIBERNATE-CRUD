@@ -1,4 +1,4 @@
-package com.example.demo2;
+package com.example.demo2.hibernate;
 
 import com.example.demo2.entity.Student;
 import org.hibernate.Session;

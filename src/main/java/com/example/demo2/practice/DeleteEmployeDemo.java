@@ -1,4 +1,4 @@
-package com.example.demo2.crud;
+package com.example.demo2.practice;
 
 import com.example.demo2.entity.Student;
 import org.hibernate.Session;
@@ -6,31 +6,31 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class DeleteStudentDemo {
+public class DeleteEmployeDemo {
     public static void main(String[] args) {
 
         SessionFactory factory=new Configuration()
                 .configure("hibernate.cfg.xml").addAnnotatedClass(Student.class).buildSessionFactory();
         Session session= factory.getCurrentSession();
         try {
-            int studentId=1;
+            int employeId=1;
 
             //now get a new session and start transaction
             session=factory.getCurrentSession();
             session.beginTransaction();
 
-            //retrieve student based on the id: primary key
-            System.out.println("\nGetting student with id: "+studentId);
+            //retrieve employe based on the id: primary key
+            System.out.println("\nGetting Employe with id: "+employeId);
 
-            Student myStudent = session.get(Student.class, studentId);
+            Employee employee = session.get(Employee.class,employeId);
 
-            //delete the student
-//            System.out.println("Deleting student: "+myStudent);
-//            session.delete(myStudent);
+            //delete the employe
+//            System.out.println("Deleting employe: "+employee);
+//            session.delete(employee);
 
-            //delete student id = 8
-            System.out.println("Deleting student id = 8");
-            session.createQuery("delete from Student where id=8").executeUpdate();
+            //delete employee id= 1;
+            System.out.println("Deleteing employee id = 8");
+            session.createQuery("delete from Employee where id=1").executeUpdate();
 
             //commit the transaction
             session.getTransaction().commit();
